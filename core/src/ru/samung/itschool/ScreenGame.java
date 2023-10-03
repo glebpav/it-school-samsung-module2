@@ -1,8 +1,13 @@
 package ru.samung.itschool;
 
+import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
+import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
+
+import java.util.Random;
 
 public class ScreenGame implements Screen {
 
@@ -10,9 +15,13 @@ public class ScreenGame implements Screen {
 
     Bird bird;
 
+    int tubeCount = 3;
+    Tube[] tubes;
+
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
+        initTubes();
         bird = new Bird(0, 0, 10, 250, 200);
     }
 
@@ -31,12 +40,15 @@ public class ScreenGame implements Screen {
 
         bird.fly();
 
+        for (Tube tube : tubes) tube.move();
+
         ScreenUtils.clear(1, 0, 0, 1);
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         myGdxGame.batch.begin();
 
         bird.draw(myGdxGame.batch);
+        for (Tube tube : tubes) tube.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -64,5 +76,16 @@ public class ScreenGame implements Screen {
     @Override
     public void dispose() {
         bird.dispose();
+        for (int i = 0; i < tubeCount; i++) {
+            tubes[i].dispose();
+        }
     }
+
+    void initTubes() {
+        tubes = new Tube[tubeCount];
+        for (int i = 0; i < tubeCount; i++) {
+            tubes[i] = new Tube(tubeCount, i);
+        }
+    }
+
 }

@@ -9,7 +9,7 @@ public class MyGdxGame extends Game {
     public SpriteBatch batch;
     public OrthographicCamera camera;
 
-    public final int SCR_WIDTH = 1280, SCR_HEIGHT = 720;
+    public static final int SCR_WIDTH = 1280, SCR_HEIGHT = 720;
 
     ScreenGame screenGame;
 
