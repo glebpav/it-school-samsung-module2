@@ -1,30 +1,19 @@
 package ru.samung.itschool;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 public class ScreenGame implements Screen {
 
     MyGdxGame myGdxGame;
 
-    Texture birdTexture;
-
-    int birdX, birdY;
-    int birdSpeed = 5;
-
-    int birdWidth = 250;
-    int birdHeight = 200;
-
-    boolean up = true;
+    Bird bird;
 
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
-        birdTexture = new Texture("bird0.png");
-
-        birdX = 0;
-        birdY = 0;
+        bird = new Bird(0, 0, 10, 250, 200);
     }
 
 
@@ -35,25 +24,19 @@ public class ScreenGame implements Screen {
 
     @Override
     public void render(float delta) {
-        if (birdY >= myGdxGame.SCR_HEIGHT - birdHeight) {
-            up = false;
-        }
-        if (birdY <= 0) {
-            up = true;
+
+        if (Gdx.input.justTouched()) {
+            bird.onClick();
         }
 
-        if (up) {
-            birdY += birdSpeed;
-        } else {
-            birdY -= birdSpeed;
-        }
+        bird.fly();
 
         ScreenUtils.clear(1, 0, 0, 1);
         myGdxGame.camera.update();
         myGdxGame.batch.setProjectionMatrix(myGdxGame.camera.combined);
         myGdxGame.batch.begin();
 
-        myGdxGame.batch.draw(birdTexture, birdX, birdY, birdWidth, birdHeight);
+        bird.draw(myGdxGame.batch);
 
         myGdxGame.batch.end();
     }
@@ -80,6 +63,6 @@ public class ScreenGame implements Screen {
 
     @Override
     public void dispose() {
-        birdTexture.dispose();
+        bird.dispose();
     }
 }
