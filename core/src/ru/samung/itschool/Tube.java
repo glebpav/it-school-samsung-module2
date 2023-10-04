@@ -48,6 +48,18 @@ public class Tube {
         }
     }
 
+    public boolean isHit(Bird bird) {
+
+        // down tube collision
+        if (bird.y <= gapY - gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x)
+            return true;
+        // upper tube collision
+        if (bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x)
+            return true;
+
+        return false;
+    }
+
     void dispose() {
         textureDownTube.dispose();
         textureUpperTube.dispose();

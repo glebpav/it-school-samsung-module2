@@ -1,26 +1,28 @@
 package ru.samung.itschool;
 
+import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
+
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 public class Bird {
 
-    float x, y;
-    float birdWith, birdHeight;
+    int x, y;
+    int width, height;
 
     int speed;
-    float jumpHeight;
+    int jumpHeight;
     boolean jump = true;
 
     int frameCounter;
     Texture[] framesArray;
 
-    public Bird(float x, float y, int speed, float birdWith, float birdHeight) {
+    public Bird(int x, int y, int speed, int width, int height) {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.birdWith = birdWith;
-        this.birdHeight = birdHeight;
+        this.width = width;
+        this.height = height;
         frameCounter = 0;
 
         framesArray = new Texture[]{
@@ -33,7 +35,7 @@ public class Bird {
 
     void onClick() {
         jump = true;
-        jumpHeight = 200f + y;
+        jumpHeight = 100 + y;
     }
 
     void fly() {
@@ -48,9 +50,15 @@ public class Bird {
         }
     }
 
+    boolean isInField() {
+        if (y + height < 0) return false;
+        if (y > SCR_HEIGHT) return false;
+        return true;
+    }
+
     void draw(Batch batch) {
         int frameMultiplier = 10;
-        batch.draw(framesArray[frameCounter / frameMultiplier], x, y, birdWith, birdHeight);
+        batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
     }
 
