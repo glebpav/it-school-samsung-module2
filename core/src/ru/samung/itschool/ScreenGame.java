@@ -5,6 +5,8 @@ import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import java.util.Random;
@@ -14,22 +16,26 @@ public class ScreenGame implements Screen {
     MyGdxGame myGdxGame;
 
     Bird bird;
+    PointCounter pointCounter;
 
     int tubeCount = 3;
     Tube[] tubes;
 
+    int gamePoints;
     boolean isGameOver;
 
     ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
         initTubes();
-        bird = new Bird(0, 0, 10, 250, 200);
+        bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
+        pointCounter = new PointCounter(SCR_WIDTH - 400, SCR_HEIGHT - 60);
     }
 
 
     @Override
     public void show() {
+        gamePoints = 0;
         isGameOver = false;
     }
 
@@ -45,12 +51,14 @@ public class ScreenGame implements Screen {
             System.out.println("not in field");
             isGameOver = true;
         }
-
         for (Tube tube : tubes) {
             tube.move();
             if (tube.isHit(bird)) {
                 System.out.println("hit");
                 isGameOver = true;
+            } else if (tube.isPassed(bird)) {
+                gamePoints += 1;
+                System.out.println(gamePoints);
             }
         }
 
@@ -61,6 +69,7 @@ public class ScreenGame implements Screen {
 
         bird.draw(myGdxGame.batch);
         for (Tube tube : tubes) tube.draw(myGdxGame.batch);
+        pointCounter.draw(myGdxGame.batch, gamePoints);
 
         myGdxGame.batch.end();
     }
@@ -88,6 +97,7 @@ public class ScreenGame implements Screen {
     @Override
     public void dispose() {
         bird.dispose();
+        pointCounter.dispose();
         for (int i = 0; i < tubeCount; i++) {
             tubes[i].dispose();
         }
