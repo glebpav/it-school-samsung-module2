@@ -39,12 +39,12 @@ public class Tube {
         isActive = true;
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         batch.draw(textureUpperTube, x, gapY + gapHeight / 2, width, height);
         batch.draw(textureDownTube, x, gapY - gapHeight / 2 - height, width, height);
     }
 
-    void move() {
+    public void move() {
         x -= speed;
         if (x < -width) {
             isActive = true;
@@ -73,7 +73,7 @@ public class Tube {
         return false;
     }
 
-    void dispose() {
+    public void dispose() {
         textureDownTube.dispose();
         textureUpperTube.dispose();
     }

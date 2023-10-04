@@ -33,12 +33,16 @@ public class Bird {
         };
     }
 
-    void onClick() {
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void onClick() {
         jump = true;
         jumpHeight = 100 + y;
     }
 
-    void fly() {
+    public void fly() {
         if (y >= jumpHeight) {
             jump = false;
         }
@@ -50,19 +54,19 @@ public class Bird {
         }
     }
 
-    boolean isInField() {
+    public boolean isInField() {
         if (y + height < 0) return false;
         if (y > SCR_HEIGHT) return false;
         return true;
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         int frameMultiplier = 10;
         batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
     }
 
-    void dispose() {
+    public void dispose() {
         for (Texture texture : framesArray) {
             texture.dispose();
         }

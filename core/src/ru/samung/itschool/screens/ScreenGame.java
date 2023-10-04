@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.itschool.screens;
 
 import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
 import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
@@ -10,6 +10,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import java.util.Random;
+
+import ru.samung.itschool.Bird;
+import ru.samung.itschool.MovingBackground;
+import ru.samung.itschool.MyGdxGame;
+import ru.samung.itschool.PointCounter;
+import ru.samung.itschool.Tube;
 
 public class ScreenGame implements Screen {
 
@@ -25,11 +31,11 @@ public class ScreenGame implements Screen {
     int gamePoints;
     boolean isGameOver;
 
-    ScreenGame(MyGdxGame myGdxGame) {
+    public ScreenGame(MyGdxGame myGdxGame) {
         this.myGdxGame = myGdxGame;
 
         initTubes();
-        background = new MovingBackground();
+        background = new MovingBackground("backgrounds/game_bg.png");
         bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
         pointCounter = new PointCounter(SCR_WIDTH - 400, SCR_HEIGHT - 60);
     }
@@ -39,10 +45,17 @@ public class ScreenGame implements Screen {
     public void show() {
         gamePoints = 0;
         isGameOver = false;
+        bird.setY(SCR_HEIGHT / 2);
+        initTubes();
     }
 
     @Override
     public void render(float delta) {
+
+        if (isGameOver) {
+            myGdxGame.screenRestart.gamePoints = gamePoints;
+            myGdxGame.setScreen(myGdxGame.screenRestart);
+        }
 
         if (Gdx.input.justTouched()) {
             bird.onClick();

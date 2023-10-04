@@ -12,7 +12,7 @@ public class PointCounter {
     int x, y;
     BitmapFont font;
 
-    PointCounter(int x, int y) {
+    public PointCounter(int x, int y) {
         this.x = x;
         this.y = y;
 
@@ -21,11 +21,11 @@ public class PointCounter {
         font.setColor(Color.WHITE);
     }
 
-    void draw(Batch batch, int countOfPoints) {
-        font.draw(batch, "Count: " + countOfPoints, x, y);
+    public void draw(Batch batch, int countOfPoints) {
+        font.draw(batch, "Score: " + countOfPoints, x, y);
     }
 
-    void dispose() {
+    public void dispose() {
         font.dispose();
     }
 

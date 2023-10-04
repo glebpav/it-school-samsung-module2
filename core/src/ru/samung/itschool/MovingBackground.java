@@ -10,13 +10,13 @@ public class MovingBackground {
     int x, x2;
     int speed = 3;
 
-    MovingBackground() {
+    public MovingBackground(String pathToTexture) {
         x = 0;
         x2 = MyGdxGame.SCR_WIDTH;
-        texture = new Texture("game_bg.png");
+        texture = new Texture(pathToTexture);
     }
 
-    void move() {
+    public void move() {
         x -= speed;
         x2 -= speed;
 
@@ -28,12 +28,12 @@ public class MovingBackground {
         }
     }
 
-    void draw(Batch batch) {
+    public void draw(Batch batch) {
         batch.draw(texture, x, 0, MyGdxGame.SCR_WIDTH + 2, MyGdxGame.SCR_HEIGHT);
         batch.draw(texture, x2, 0, MyGdxGame.SCR_WIDTH + 2, MyGdxGame.SCR_HEIGHT);
     }
 
-    void dispose() {
+    public void dispose() {
         texture.dispose();
     }
 
