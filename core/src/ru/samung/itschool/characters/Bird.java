@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.itschool.characters;
 
 import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
 

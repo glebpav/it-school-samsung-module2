@@ -5,17 +5,13 @@ import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.util.Random;
-
-import ru.samung.itschool.Bird;
-import ru.samung.itschool.MovingBackground;
+import ru.samung.itschool.characters.Bird;
+import ru.samung.itschool.componements.MovingBackground;
 import ru.samung.itschool.MyGdxGame;
-import ru.samung.itschool.PointCounter;
-import ru.samung.itschool.Tube;
+import ru.samung.itschool.componements.PointCounter;
+import ru.samung.itschool.characters.Tube;
 
 public class ScreenGame implements Screen {
 

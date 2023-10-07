@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.itschool.componements;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
