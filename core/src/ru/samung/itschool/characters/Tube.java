@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.itschool.characters;
 
 import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
 import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
@@ -7,6 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import java.util.Random;
+
+import ru.samung.itschool.characters.Bird;
 
 public class Tube {
 

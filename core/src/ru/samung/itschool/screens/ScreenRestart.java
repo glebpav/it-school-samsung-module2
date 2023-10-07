@@ -4,10 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import ru.samung.itschool.MovingBackground;
+import ru.samung.itschool.componements.MovingBackground;
 import ru.samung.itschool.MyGdxGame;
-import ru.samung.itschool.PointCounter;
-import ru.samung.itschool.TextButton;
+import ru.samung.itschool.componements.PointCounter;
+import ru.samung.itschool.componements.TextButton;
 
 public class ScreenRestart implements Screen {
 
