@@ -8,9 +8,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import ru.samung.itschool.characters.Bird;
-import ru.samung.itschool.componements.MovingBackground;
+import ru.samung.itschool.components.MovingBackground;
 import ru.samung.itschool.MyGdxGame;
-import ru.samung.itschool.componements.PointCounter;
+import ru.samung.itschool.components.PointCounter;
 import ru.samung.itschool.characters.Tube;
 
 public class ScreenGame implements Screen {
