@@ -2,6 +2,7 @@ package ru.samung.itschool.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import ru.samung.itschool.components.MovingBackground;
@@ -32,13 +33,15 @@ public class ScreenMenu implements Screen {
     @Override
     public void render(float delta) {
         if (Gdx.input.justTouched()) {
-            int tx = Gdx.input.getX();
-            int ty = MyGdxGame.SCR_HEIGHT - Gdx.input.getY();
 
-            if (buttonStart.isHit(tx, ty)) {
+            Vector3 touch = myGdxGame.camera.unproject(
+                    new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0)
+            );
+
+            if (buttonStart.isHit((int) touch.x, (int) touch.y)) {
                 myGdxGame.setScreen(myGdxGame.screenGame);
             }
-            if (buttonExit.isHit(tx, ty)) {
+            if (buttonExit.isHit((int) touch.x, (int) touch.y)) {
                 Gdx.app.exit();
             }
         }

@@ -2,6 +2,7 @@ package ru.samung.itschool.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import ru.samung.itschool.components.MovingBackground;
@@ -38,13 +39,15 @@ public class ScreenRestart implements Screen {
     public void render(float delta) {
 
         if (Gdx.input.justTouched()) {
-            int tx = Gdx.input.getX();
-            int ty = MyGdxGame.SCR_HEIGHT - Gdx.input.getY();
 
-            if (buttonRestart.isHit(tx, ty)) {
+            Vector3 touch = myGdxGame.camera.unproject(
+                    new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0)
+            );
+
+            if (buttonRestart.isHit((int) touch.x, (int) touch.y)) {
                 myGdxGame.setScreen(myGdxGame.screenGame);
             }
-            if (buttonMenu.isHit(tx, ty)) {
+            if (buttonMenu.isHit((int) touch.x, (int) touch.y)) {
                 myGdxGame.setScreen(myGdxGame.screenMenu);
             }
         }
