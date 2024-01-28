@@ -1,19 +1,22 @@
-package ru.samung.itschool.screens;
+package ru.samung.gamestudio.screens;
 
-import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
-import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
+import static ru.samung.gamestudio.MyGdxGame.SCR_HEIGHT;
+import static ru.samung.gamestudio.MyGdxGame.SCR_WIDTH;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import ru.samung.itschool.characters.Bird;
-import ru.samung.itschool.components.MovingBackground;
-import ru.samung.itschool.MyGdxGame;
-import ru.samung.itschool.components.PointCounter;
-import ru.samung.itschool.characters.Tube;
+import ru.samung.gamestudio.characters.Bird;
+import ru.samung.gamestudio.components.MovingBackground;
+import ru.samung.gamestudio.MyGdxGame;
+import ru.samung.gamestudio.components.PointCounter;
+import ru.samung.gamestudio.characters.Tube;
 
 public class ScreenGame implements Screen {
+
+    final int pointCounterMarginTop = 60;
+    final int pointCounterMarginRight = 400;
 
     MyGdxGame myGdxGame;
 
@@ -33,7 +36,7 @@ public class ScreenGame implements Screen {
         initTubes();
         background = new MovingBackground("backgrounds/game_bg.png");
         bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
-        pointCounter = new PointCounter(SCR_WIDTH - 400, SCR_HEIGHT - 60);
+        pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginRight, SCR_HEIGHT - pointCounterMarginTop);
     }
 
 

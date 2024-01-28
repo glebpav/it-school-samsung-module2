@@ -1,9 +1,9 @@
-package ru.samung.itschool.components;
+package ru.samung.gamestudio.components;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
-import ru.samung.itschool.MyGdxGame;
+import ru.samung.gamestudio.MyGdxGame;
 
 public class MovingBackground {
 
