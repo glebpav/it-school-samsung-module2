@@ -1,17 +1,16 @@
-package ru.samung.itschool;
+package ru.samung.gamestudio;
 
-import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
-import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
+import static ru.samung.gamestudio.MyGdxGame.SCR_HEIGHT;
+import static ru.samung.gamestudio.MyGdxGame.SCR_WIDTH;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.utils.ScreenUtils;
 
-import java.util.Random;
-
 public class ScreenGame implements Screen {
+
+    final int pointCounterMarginTop = 400;
+    final int pointCounterMarginRight = 60;
 
     MyGdxGame myGdxGame;
 
@@ -29,7 +28,7 @@ public class ScreenGame implements Screen {
 
         initTubes();
         bird = new Bird(20, SCR_HEIGHT / 2, 10, 250, 200);
-        pointCounter = new PointCounter(SCR_WIDTH - 400, SCR_HEIGHT - 60);
+        pointCounter = new PointCounter(SCR_WIDTH - pointCounterMarginTop, SCR_HEIGHT - pointCounterMarginRight);
     }
 
 
