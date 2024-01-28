@@ -1,10 +1,9 @@
-package ru.samung.itschool;
+package ru.samung.gamestudio;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import ru.samung.itschool.MyGdxGame;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override
