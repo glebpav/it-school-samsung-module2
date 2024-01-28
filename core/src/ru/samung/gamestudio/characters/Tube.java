@@ -1,14 +1,12 @@
-package ru.samung.itschool.characters;
+package ru.samung.gamestudio.characters;
 
-import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
-import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
+import static ru.samung.gamestudio.MyGdxGame.SCR_HEIGHT;
+import static ru.samung.gamestudio.MyGdxGame.SCR_WIDTH;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
 import java.util.Random;
-
-import ru.samung.itschool.characters.Bird;
 
 public class Tube {
 
@@ -58,10 +56,10 @@ public class Tube {
     public boolean isHit(Bird bird) {
 
         // down tube collision
-        if (bird.y <= gapY - gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x)
+        if (bird.y <= gapY - gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x + width)
             return true;
         // upper tube collision
-        if (bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x)
+        if (bird.y + bird.height >= gapY + gapHeight / 2 && bird.x + bird.width >= x && bird.x <= x + width)
             return true;
 
         return false;

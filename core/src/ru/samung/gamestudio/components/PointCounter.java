@@ -1,4 +1,4 @@
-package ru.samung.itschool.components;
+package ru.samung.gamestudio.components;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -14,7 +14,7 @@ public class PointCounter {
         this.y = y;
 
         font = new BitmapFont();
-        font.getData().scale(5f);
+        font.getData().setScale(5f);
         font.setColor(Color.WHITE);
     }
 
