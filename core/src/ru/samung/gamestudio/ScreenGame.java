@@ -1,13 +1,8 @@
-package ru.samung.itschool;
-
-import static ru.samung.itschool.MyGdxGame.SCR_HEIGHT;
-import static ru.samung.itschool.MyGdxGame.SCR_WIDTH;
+package ru.samung.gamestudio;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.utils.ScreenUtils;
-
-import java.util.Random;
 
 public class ScreenGame implements Screen {
 
