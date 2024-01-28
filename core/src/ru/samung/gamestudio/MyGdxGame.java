@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.gamestudio;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.Texture;
