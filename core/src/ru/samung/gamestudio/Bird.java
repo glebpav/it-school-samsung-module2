@@ -10,8 +10,8 @@ public class Bird {
 
     int speed;
     float jumpHeight;
-    float maxHeightOfJump = 200f;
-    boolean jump = true;
+    final float maxHeightOfJump = 200f;
+    boolean jump;
 
     int frameCounter;
     Texture[] framesArray;
