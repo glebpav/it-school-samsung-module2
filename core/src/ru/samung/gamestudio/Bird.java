@@ -5,23 +5,23 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 
 public class Bird {
 
-    float x, y;
-    float birdWith, birdHeight;
+    int x, y;
+    int width, height;
 
     int speed;
-    float jumpHeight;
-    final float maxHeightOfJump = 200f;
+    int jumpHeight;
+    final int maxHeightOfJump = 200;
     boolean jump;
 
     int frameCounter;
     Texture[] framesArray;
 
-    public Bird(float x, float y, int speed, float birdWith, float birdHeight) {
+    public Bird(int x, int y, int speed, int width, int height) {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.birdWith = birdWith;
-        this.birdHeight = birdHeight;
+        this.width = width;
+        this.height = height;
         frameCounter = 0;
 
         framesArray = new Texture[]{
@@ -51,7 +51,7 @@ public class Bird {
 
     void draw(Batch batch) {
         int frameMultiplier = 10;
-        batch.draw(framesArray[frameCounter / frameMultiplier], x, y, birdWith, birdHeight);
+        batch.draw(framesArray[frameCounter / frameMultiplier], x, y, width, height);
         if (frameCounter++ == framesArray.length * frameMultiplier - 1) frameCounter = 0;
     }
 
