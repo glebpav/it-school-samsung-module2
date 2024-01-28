@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.gamestudio;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -10,6 +10,7 @@ public class Bird {
 
     int speed;
     float jumpHeight;
+    float maxHeightOfJump = 200f;
     boolean jump = true;
 
     int frameCounter;
@@ -33,7 +34,7 @@ public class Bird {
 
     void onClick() {
         jump = true;
-        jumpHeight = 200f + y;
+        jumpHeight = maxHeightOfJump + y;
     }
 
     void fly() {

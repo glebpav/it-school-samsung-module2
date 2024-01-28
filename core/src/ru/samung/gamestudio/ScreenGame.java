@@ -1,4 +1,4 @@
-package ru.samung.itschool;
+package ru.samung.gamestudio;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
